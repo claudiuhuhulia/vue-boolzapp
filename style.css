@@ -19,6 +19,7 @@ background-image: linear-gradient(#009688 20%, #d8dbd6 20%,#d8dbd6);
 .usersection{
     height: 80px;
     background-color: #eaeaea;
+    padding: 10px;
 }
 .notifics_section{
     height: 80px;
@@ -70,5 +71,15 @@ width: 100%;
 .received{
     background-color: white;
     margin-left: 40px;
+}
+img{
+    height: 100%;
+    border-radius: 50%;
+}
+.user{
+    height: 100%;
+}
+i{
+    color: gray;
 }
 
