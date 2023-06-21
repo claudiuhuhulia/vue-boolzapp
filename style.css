@@ -82,4 +82,14 @@ img{
 i{
     color: gray;
 }
+.bell{
+    border-radius: 50%;
+    padding: 15px;
+    background-color: white;
+    height: 60px;
+    width: 60px;
+}
+.bell i{
+    color: #8edafc;
+}
 
