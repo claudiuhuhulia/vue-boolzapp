@@ -29,13 +29,26 @@
                 </div>
             </div>
             <div class="notifics_section d-flex align-items-center">
-                <div class="bell">
+                <div class="bell d-flex align-items-center mx-2">
                 <i class="bi bi-bell-slash-fill fs-3"></i>
                 </div>
+                <div class="notific_text">
+                    <p>Ricevi notifiche di nuovi messaggi</p>
+                <a href="#">Attiva notifiche desktop</a>
+                </div> 
             </div>
-            <div class="search_section"></div>
-            <div class="contacts_section">
+            <div class="search_section py-2 px-1">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" >
+                  </div>
             </div>
+           
+                <div   class="list-group contacts_section">
+                    <button v-for="contact in contacts" type="button" class="list-group-item list-group-item-action contact"><img src='img/avatar{{contact.avatar}}.jpg' alt="Marco"><p class="fw-bold d-inline">{{contact.name}}</p></button>
+
+                  </div>
+           
         </div>
         <div id="mainchat" class="d-flex justify-content-between flex-column">
             <div class="current_contact w-100"></div>
