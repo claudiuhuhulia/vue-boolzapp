@@ -2,3 +2,19 @@ body {
 height: 100vh;
 background-image: linear-gradient(#009688 20%, #d8dbd6 20%,#d8dbd6);
 }
+
+.container{
+    border: 1px dashed black;
+    height: 80vh;
+}
+
+#sidebar{
+    border: 1px dashed black;
+    flex-basis: 35%;
+    height: 100%;
+}
+#mainchat{
+    border: 1px dashed black;
+    height: 100%;
+    flex-grow: 1;
+}
