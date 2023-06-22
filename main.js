@@ -198,7 +198,8 @@ const app = Vue.createApp({
               ],
             }
           ],
-          currentId: 1
+          currentId: 1,
+          newText:''
         }
     },
     computed:{
@@ -215,14 +216,22 @@ const app = Vue.createApp({
         const avatar = contact.avatar
         return `img/avatar${avatar}.jpg`
       },
-
-
       setCurrentId(id){
         this.currentId = id;
-      }
-   
-    },
+      },
+    
+      sendMess(){
+      const sentMessage = {id: new Date().getTime(), date:'10/01/2020 15:51:00', message: `${this.newText}`,  status: 'sent'}
+      this.currentContact.messages.push(sentMessage)
+      this.newText=''
 
+      setTimeout(this.cpuAnswer, 1000);
+    },
+    cpuAnswer(){
+      const receivedMessage = {id: new Date().getTime(), date:'10/01/2020 15:51:00', message: `ok`,  status: 'received'}
+      this.currentContact.messages.push(receivedMessage)
+    }
+  }
 })
 
 app.mount('#root');
