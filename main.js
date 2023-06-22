@@ -197,9 +197,32 @@ const app = Vue.createApp({
                 }
               ],
             }
-          ]
+          ],
+          currentId: 1
         }
-    }
+    },
+    computed:{
+      currentContact(){
+        return this.contacts.find(contact => contact.id === this.currentId);
+      },
+     
+    },
+    methods:{
+
+      /* FUNZIONE CHE RENDERIZZA IL CONTATTO */
+      getAvatar(contact){
+
+        const avatar = contact.avatar
+        return `img/avatar${avatar}.jpg`
+      },
+
+
+      setCurrentId(id){
+        this.currentId = id;
+      }
+   
+    },
+
 })
 
 app.mount('#root');

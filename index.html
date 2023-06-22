@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+
     <div id="root" class="container my-4 p-0 d-flex">
         
         <!-- SIDEBAR -->
@@ -54,9 +56,9 @@
            
             <!-- CONTACTS LIST -->
                 <div class="list-group contacts_section">
-                    <button v-for="contact in contacts" 
+                    <button v-for="contact in contacts" :key="contact.id" @click="setCurrentId(contact.id)"
                         type="button" class="list-group-item list-group-item-action contact">
-                        <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
+                        <img :src="getAvatar(contact)" :alt="contact.name">
                         <p class="fw-bold d-inline">{{contact.name}}</p></button>
                 </div>
         </div>
@@ -67,8 +69,8 @@
             <!-- HEADER CONTACT -->
             <div class="current_contact w-100 d-flex justify-content-between align-items-center">
                 <div class="contact h-100">
-                    <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
-                    <span class="fw-bold px-2">{{user.name}}</span>
+                    <img :src="getAvatar(currentContact)" :alt="currentContact.name">
+                    <span class="fw-bold px-2">{{currentContact.name}}</span>
                 </div>
                 <div class="contact_options">
                     <i class="bi bi-search mx-2 fs-3"></i>
@@ -79,8 +81,7 @@
 
             <!-- MAIN CHAT -->
             <div class="chat">
-                <div class="msg sent">Ciao Pasquale come stai?<span class="date">10/01/2020 15:30:55</span></div>
-                <div class="msg received">Tutto bene! tu?<span class="date">10/01/2020 15:30:55</span></div>
+                <div v-for="message in currentContact.messages" class="msg" :class="message.status">{{message.message}}<span class="date">{{message.date}}</span></div>
             </div>
 
             <!-- TEXT SECTION -->
