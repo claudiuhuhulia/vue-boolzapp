@@ -38,6 +38,7 @@ background-image: linear-gradient(#009688 20%, #d8dbd6 20%,#d8dbd6);
 .current_contact{
     height: 80px;
     background-color: #eaeaea;
+    padding: 10PX;
 }
 .text_section{
     height: 80px;
@@ -47,7 +48,7 @@ background-image: linear-gradient(#009688 20%, #d8dbd6 20%,#d8dbd6);
     height: calc(100% - 160px);
     background-image: url(img/mine.jpg);
     overflow: auto;
-width: 100%;
+    width: 100%;
 }
 
 .msg{
@@ -77,9 +78,7 @@ img{
     height: 100%;
     border-radius: 50%;
 }
-.user{
-    height: 100%;
-}
+
 i, .notifics_section a{
     color: gray;
 }

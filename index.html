@@ -16,11 +16,15 @@
 </head>
 <body>
     <div id="root" class="container my-4 p-0 d-flex">
+        
+        <!-- SIDEBAR -->
         <div id="sidebar">
+
+            <!-- USER HEADER -->
             <div class="usersection d-flex justify-content-between align-items-center">
-                <div class="user">
-                <img src="img/avatar_io.jpg" alt="user">
-                <span class="fw-bold px-2">Nome Utente</span>
+                <div class="user h-100">
+                <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
+                <span class="fw-bold px-2">{{user.name}}</span>
                 </div>
                 <div class="user_option">
                 <a href="#"><i class="bi bi-arrow-clockwise fs-3 mx-2"></i></a>
@@ -28,6 +32,8 @@
                 <a href="#"><i class="bi bi-three-dots-vertical fs-3 mx-2"></i></a>
                 </div>
             </div>
+
+            <!-- NOTIFICS SECTIONS -->
             <div class="notifics_section d-flex align-items-center">
                 <div class="bell d-flex align-items-center mx-2">
                 <i class="bi bi-bell-slash-fill fs-3"></i>
@@ -37,6 +43,8 @@
                 <a href="#">Attiva notifiche desktop</a>
                 </div> 
             </div>
+
+            <!-- SEARCH SECTION -->
             <div class="search_section py-2 px-1">
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -44,19 +52,51 @@
                   </div>
             </div>
            
-                <div   class="list-group contacts_section">
-                    <button v-for="contact in contacts" type="button" class="list-group-item list-group-item-action contact"><img src='img/avatar{{contact.avatar}}.jpg' alt="Marco"><p class="fw-bold d-inline">{{contact.name}}</p></button>
-
-                  </div>
-           
+            <!-- CONTACTS LIST -->
+                <div class="list-group contacts_section">
+                    <button v-for="contact in contacts" 
+                        type="button" class="list-group-item list-group-item-action contact">
+                        <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
+                        <p class="fw-bold d-inline">{{contact.name}}</p></button>
+                </div>
         </div>
+
+        <!-- CHAT -->
         <div id="mainchat" class="d-flex justify-content-between flex-column">
-            <div class="current_contact w-100"></div>
+            
+            <!-- HEADER CONTACT -->
+            <div class="current_contact w-100 d-flex justify-content-between align-items-center">
+                <div class="contact h-100">
+                    <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
+                    <span class="fw-bold px-2">{{user.name}}</span>
+                </div>
+                <div class="contact_options">
+                    <i class="bi bi-search mx-2 fs-3"></i>
+                    <i class="bi bi-paperclip mx-2 fs-3"></i>
+                    <i class="bi bi-three-dots-vertical fs-3 mx-2"></i>
+                </div>
+            </div>
+
+            <!-- MAIN CHAT -->
             <div class="chat">
                 <div class="msg sent">Ciao Pasquale come stai?<span class="date">10/01/2020 15:30:55</span></div>
                 <div class="msg received">Tutto bene! tu?<span class="date">10/01/2020 15:30:55</span></div>
             </div>
-            <div class="text_section w-100"></div>
+
+            <!-- TEXT SECTION -->
+            <div class="text_section w-100 container ">
+                <div class="row d-flex justify-content-between align-items-center h-100">
+                    <div class="col-1">
+                        <i class="bi bi-emoji-smile mx-2 fs-3"></i>
+                    </div>
+                    <div class="col-10">
+                        <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                    </div>
+                    <div class="col-1">
+                        <i class="bi bi-mic-fill mx-2 fs-3"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
