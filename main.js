@@ -206,6 +206,9 @@ const app = Vue.createApp({
       currentContact(){
         return this.contacts.find(contact => contact.id === this.currentId);
       },
+      currentChat(){
+        return this.currentContact.messages
+      }
      
     },
     methods:{
@@ -222,14 +225,14 @@ const app = Vue.createApp({
     
       sendMess(){
       const sentMessage = {id: new Date().getTime(), date:'10/01/2020 15:51:00', message: `${this.newText}`,  status: 'sent'}
-      this.currentContact.messages.push(sentMessage)
+      this.currentChat.push(sentMessage)
       this.newText=''
 
       setTimeout(this.cpuAnswer, 1000);
     },
     cpuAnswer(){
       const receivedMessage = {id: new Date().getTime(), date:'10/01/2020 15:51:00', message: `ok`,  status: 'received'}
-      this.currentContact.messages.push(receivedMessage)
+      this.currentChat.push(receivedMessage)
     }
   }
 })

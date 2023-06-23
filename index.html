@@ -81,7 +81,7 @@
 
             <!-- MAIN CHAT -->
             <div class="chat">
-                <div v-for="message in currentContact.messages" class="msg" :class="message.status">{{message.message}}<span class="date">{{message.date}}</span></div>
+                <div v-for="message in currentChat" class="msg" :class="message.status">{{message.message}}<span class="date">{{message.date}}</span></div>
             </div>
 
             <!-- TEXT SECTION -->
