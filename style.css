@@ -110,3 +110,14 @@ i, .notifics_section a{
     left: 120px;
 }
 
+.msg i{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    display: none;
+}
+
+.msg:hover i{
+    display: block;
+}
+
