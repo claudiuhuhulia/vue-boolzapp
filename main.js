@@ -261,6 +261,7 @@ const app = Vue.createApp({
       cpuAnswer(){
       this.addMessage('ok', 'received')
     },
+    
    
   }
 })
