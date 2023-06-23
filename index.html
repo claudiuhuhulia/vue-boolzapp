@@ -56,7 +56,7 @@
            
             <!-- CONTACTS LIST -->
                 <div class="list-group contacts_section">
-                    <button v-for="contact in  filteredContacts" :key="contact.id" @click="setCurrentId(contact.id)"
+                    <button v-for="contact in  filteredContacts"  @click="setCurrentId(contact.id)"
                         type="button" class="list-group-item list-group-item-action contact">
                         <img :src="getAvatar(contact)" :alt="contact.name">
                         <p class="fw-bold d-inline">{{contact.name}}</p></button>

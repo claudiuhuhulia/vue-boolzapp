@@ -204,16 +204,21 @@ const app = Vue.createApp({
         }
     },
     computed:{
+
+      /* FUNZIONE CHE TIENE TRACCIA DEL ID DEL CONTATTO SELEZIONATO */
       currentContact(){
         return this.contacts.find(contact => contact.id === this.currentId);
       },
+
+      /* CENTRALIZZAZIONE CHAT DEL CONTATTO CORRENTE */
       currentChat(){
         return this.currentContact.messages
       },
+
+      /* ARRAY CHE FILTRA I CONTATTI IN BASE ALLE PAROLE CERCATE */
       filteredContacts(){
        const searchedText = this.searchText.toLowerCase()
-
-       return this.contacts.filter((contact) => {
+        return this.contacts.filter((contact) => {
         return contact.name.toLowerCase().includes(searchedText)
        })
       }      
@@ -222,13 +227,16 @@ const app = Vue.createApp({
 
       /* FUNZIONE CHE RENDERIZZA IL CONTATTO */
       getAvatar(contact){
-
         const avatar = contact.avatar
         return `img/avatar${avatar}.jpg`
       },
+
+      /* FUNZIONE CHE MI RESTITUISCE L'ID DELLA CHAT */
       setCurrentId(id){
         this.currentId = id;
       },
+
+      /* CENTRALIZZAZIONE DELLA CREAZIONE DELL'OGGETTO DA INSERIRE NEL ARRAY MESSAGGES */
       addMessage(message, status){
         const messageText= {
           id: new Date().getTime(),
@@ -239,14 +247,18 @@ const app = Vue.createApp({
         this.currentChat.push(messageText)
       },
     
+      /* FUNZIONE CHE INSERISCE IL MESSAGGIO DELL'UTENTE */
       sendMess(){
       if(!this.newText) return  
         this.addMessage(this.newText, 'sent')
         this.newText=''
 
+        /* TIMING FUNCTION CHE RISPONDE DOPO UN SECONDO DAL INVIO */
       setTimeout(this.cpuAnswer, 1000);
     },
-    cpuAnswer(){
+
+    /* FUNZIONE CHE INSERISCE IL MESSAGGIO DELLA CPU */
+      cpuAnswer(){
       this.addMessage('ok', 'received')
     },
    
