@@ -224,6 +224,7 @@ const app = Vue.createApp({
       },
     
       sendMess(){
+      if(!this.newText) return  
       const sentMessage = {id: new Date().getTime(), date:'10/01/2020 15:51:00', message: `${this.newText}`,  status: 'sent'}
       this.currentChat.push(sentMessage)
       this.newText=''
