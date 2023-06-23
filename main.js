@@ -199,7 +199,8 @@ const app = Vue.createApp({
             }
           ],
           currentId: 1,
-          newText:''
+          newText:'',
+          searchText:''
         }
     },
     computed:{
@@ -208,7 +209,14 @@ const app = Vue.createApp({
       },
       currentChat(){
         return this.currentContact.messages
-      }
+      },
+      filteredContacts(){
+       const searchedText = this.searchText.toLowerCase()
+
+       return this.contacts.filter((contact) => {
+        return contact.name.toLowerCase().includes(searchedText)
+       })
+      }      
     },
     methods:{
 
@@ -240,7 +248,8 @@ const app = Vue.createApp({
     },
     cpuAnswer(){
       this.addMessage('ok', 'received')
-    }
+    },
+   
   }
 })
 

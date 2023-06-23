@@ -50,13 +50,13 @@
             <div class="search_section py-2 px-1">
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="bi bi-search"></i></span>
-                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" >
+                    <input v-model="searchText" type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" >
                   </div>
             </div>
            
             <!-- CONTACTS LIST -->
                 <div class="list-group contacts_section">
-                    <button v-for="contact in contacts" :key="contact.id" @click="setCurrentId(contact.id)"
+                    <button v-for="contact in  filteredContacts" :key="contact.id" @click="setCurrentId(contact.id)"
                         type="button" class="list-group-item list-group-item-action contact">
                         <img :src="getAvatar(contact)" :alt="contact.name">
                         <p class="fw-bold d-inline">{{contact.name}}</p></button>
