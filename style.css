@@ -110,7 +110,7 @@ i, .notifics_section a{
     left: 120px;
 }
 
-.msg i{
+.msg  i{
     position: absolute;
     top: 2px;
     right: 2px;
@@ -119,6 +119,22 @@ i, .notifics_section a{
 
 .msg:hover i{
     display: block;
+}
+
+.dropdown-option{
+    background-color: white;
+    padding: 6px;
+    width: 100px;
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    border: 1px solid black;
+}
+
+.msg:hover .dropdown-option{
+    display: block;
+    
 }
 
 

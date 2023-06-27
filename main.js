@@ -200,20 +200,30 @@ const app = Vue.createApp({
           ],
           currentId: 1,
           newText:'',
-          searchText:''
+          searchText:'',
+          dropdown:false,
+          currentMess:[]
         }
-    },
+        },
+    
+
     computed:{
 
       /* FUNZIONE CHE TIENE TRACCIA DEL ID DEL CONTATTO SELEZIONATO */
       currentContact(){
         return this.contacts.find(contact => contact.id === this.currentId);
       },
+     
 
       /* CENTRALIZZAZIONE CHAT DEL CONTATTO CORRENTE */
       currentChat(){
         return this.currentContact.messages
       },
+ 
+        CurrentMessage(){
+        return this.currentChat.find(message => message.id === this.currentMess);
+      }, 
+    
 
       /* ARRAY CHE FILTRA I CONTATTI IN BASE ALLE PAROLE CERCATE */
       filteredContacts(){
@@ -221,7 +231,7 @@ const app = Vue.createApp({
         return this.contacts.filter((contact) => {
         return contact.name.toLowerCase().includes(searchedText)
        })
-      }      
+      }
     },
     methods:{
 
@@ -234,8 +244,19 @@ const app = Vue.createApp({
       /* FUNZIONE CHE MI RESTITUISCE L'ID DELLA CHAT */
       setCurrentId(id){
         this.currentId = id;
+      
       },
+      setCurrentMess(Messid){
+        this.currentMess = Messid;
+        
+      },
+       isDropdown(){
+        
+        return this.dropdown=!this.dropdown;
+      }, 
+     
 
+    
       /* CENTRALIZZAZIONE DELLA CREAZIONE DELL'OGGETTO DA INSERIRE NEL ARRAY MESSAGGES */
       addMessage(message, status){
         const messageText= {
@@ -261,7 +282,6 @@ const app = Vue.createApp({
       cpuAnswer(){
       this.addMessage('ok', 'received')
     },
-    
    
   }
 })
