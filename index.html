@@ -98,7 +98,7 @@
                 <span class="date">{{message.date}}</span>
                 
                 <i class="bi bi-caret-down-fill" ></i>
-                <div v-if="dropdown" class="dropdown-option text-center">Delete</div>
+                <div v-if="dropdown" class="dropdown-option text-center" @click="deleteMessage()">Delete</div>
 
                 </div>
 

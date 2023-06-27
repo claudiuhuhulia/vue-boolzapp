@@ -202,7 +202,7 @@ const app = Vue.createApp({
           newText:'',
           searchText:'',
           dropdown:false,
-          currentMess:[]
+          currentMess:[],
         }
         },
     
@@ -251,9 +251,13 @@ const app = Vue.createApp({
         
       },
        isDropdown(){
-        
         return this.dropdown=!this.dropdown;
       }, 
+
+      deleteMessage(){
+        this.currentContact.messages = this.currentContact.messages.filter(message => message.id !== this.currentMess)
+
+      },
      
 
     
